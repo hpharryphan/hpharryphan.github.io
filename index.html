@@ -1,186 +1,261 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>[Your Name] | Engineering Portfolio</title>
-  <script src="https://tailwindcss.com"></script>
-  <link rel="preconnect" href="https://googleapis.com">
-  <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace'],
-          }
-        }
-      }
-    }
-  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Name | Engineering Portfolio</title>
+<meta name="description" content="Engineering portfolio of Your Name: selected projects, skills, and contact information.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #eef1f4;
+  --sheet: #f8f9fb;
+  --ink: #14202b;
+  --muted: #55646f;
+  --line: #b9c3cc;
+  --blue: #1f4e8c;
+  --flag: #d8482a;
+  --sans: "IBM Plex Sans", system-ui, sans-serif;
+  --head: "Archivo", "IBM Plex Sans", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0f1a26;
+    --sheet: #15222f;
+    --ink: #e6ecf1;
+    --muted: #93a3b0;
+    --line: #2f4254;
+    --blue: #7fb0ec;
+    --flag: #ff7a59;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1rem/1.65 var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--blue); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--flag); outline-offset: 3px; }
+.wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.5rem; }
+
+/* Header */
+header { border-bottom: 1px solid var(--line); background: var(--paper); position: sticky; top: 0; z-index: 10; }
+header .wrap { display: flex; align-items: center; justify-content: space-between; height: 3.5rem; }
+.brand { font: 700 1rem var(--head); color: var(--ink); text-decoration: none; }
+nav { display: flex; gap: 1.25rem; font-size: .9rem; align-items: center; }
+nav a { color: var(--muted); text-decoration: none; }
+nav a:hover { color: var(--ink); }
+nav .resume { color: var(--ink); border: 1px solid var(--ink); padding: .25rem .75rem; border-radius: 2px; }
+nav .resume:hover { background: var(--ink); color: var(--paper); }
+
+/* Hero */
+.hero { padding: 5rem 0 4rem; }
+.hero h1 { font: 800 clamp(2.75rem, 8vw, 5.5rem)/1 var(--head); letter-spacing: -.03em; margin: 0 0 1rem; }
+.dim { display: flex; align-items: center; gap: .5rem; max-width: 36rem; color: var(--muted); font: 400 .8rem var(--mono); margin-bottom: 1.25rem; }
+.dim::before, .dim::after { content: ""; flex: 1; border-top: 1px solid var(--muted); }
+.dim span { white-space: nowrap; }
+.hero .role { font: 500 1.35rem var(--head); color: var(--blue); margin: 0 0 1rem; }
+.hero p.lead { max-width: 38rem; color: var(--muted); font-size: 1.1rem; margin: 0 0 2rem; }
+.links { display: flex; flex-wrap: wrap; gap: .75rem; }
+.btn { padding: .6rem 1.1rem; border: 1px solid var(--ink); border-radius: 2px; text-decoration: none; color: var(--ink); font-weight: 500; }
+.btn.primary { background: var(--ink); color: var(--paper); }
+.btn:hover { border-color: var(--flag); }
+
+/* Sections */
+section { padding: 4rem 0; border-top: 1px solid var(--line); }
+h2 { font: 800 1.9rem var(--head); letter-spacing: -.02em; margin: 0 0 .5rem; }
+.sub { color: var(--muted); margin: 0 0 2.5rem; max-width: 40rem; }
+
+/* Project sheets */
+.sheets { display: grid; gap: 1.75rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 28rem), 1fr)); }
+.sheet { background: var(--sheet); border: 1.5px solid var(--ink); display: flex; flex-direction: column; }
+.preview { aspect-ratio: 16 / 9; border-bottom: 1.5px solid var(--ink); display: grid; place-items: center; color: var(--muted); font: 400 .8rem var(--mono); background:
+  linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 24px 24px,
+  linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 24px 24px; }
+.preview img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sheet .body { padding: 1.25rem 1.25rem 1rem; flex: 1; }
+.sheet h3 { font: 700 1.25rem var(--head); margin: 0 0 .5rem; }
+.sheet p { margin: 0; color: var(--muted); font-size: .95rem; }
+.block { display: grid; grid-template-columns: 1fr 1fr; border-top: 1.5px solid var(--ink); font-size: .85rem; }
+.block div { padding: .6rem 1.25rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.block div:nth-child(2n) { border-right: 0; }
+.block b { display: block; font: 400 .72rem var(--mono); color: var(--muted); margin-bottom: .1rem; }
+.block .wide { grid-column: 1 / -1; border-right: 0; }
+.block .wide:last-child { border-bottom: 0; }
+.block .out { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+.more { margin-top: 2rem; }
+
+/* Skills */
+.skills { display: grid; gap: 0; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); border: 1.5px solid var(--ink); background: var(--sheet); }
+.skills div { padding: 1.25rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.skills h3 { font: 700 1rem var(--head); margin: 0 0 .5rem; }
+.skills ul { margin: 0; padding: 0; list-style: none; color: var(--muted); font-size: .92rem; }
+.skills li + li { margin-top: .2rem; }
+
+/* About + contact */
+.about { display: grid; gap: 2.5rem; grid-template-columns: 1fr; }
+@media (min-width: 52rem) { .about { grid-template-columns: 1.6fr 1fr; } }
+.about p { margin: 0 0 1rem; max-width: 38rem; }
+.facts { margin: 0; font-size: .92rem; border: 1.5px solid var(--ink); background: var(--sheet); }
+.facts div { display: flex; justify-content: space-between; gap: 1rem; padding: .7rem 1rem; border-bottom: 1px solid var(--line); }
+.facts div:last-child { border-bottom: 0; }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; text-align: right; }
+footer { border-top: 1px solid var(--line); padding: 2rem 0 3rem; color: var(--muted); font-size: .9rem; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+
+@media (max-width: 36rem) {
+  nav { gap: .9rem; font-size: .82rem; }
+  .hero { padding: 3rem 0; }
+}
+</style>
 </head>
-<body class="bg-slate-950 text-slate-200 font-sans antialiased selection:bg-emerald-500/30 selection:text-emerald-300">
+<body>
 
-  <!-- Navigation -->
-  <header class="sticky top-0 z-50 border-b border-slate-800/80 bg-slate-950/85 backdrop-blur">
-    <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="#" class="font-mono text-sm font-semibold text-emerald-400 tracking-tight">
-        ~/[your-username]
-      </a>
-      <nav class="flex items-center gap-6 text-sm text-slate-400">
-        <a href="#projects" class="hover:text-white transition">Projects</a>
-        <a href="#skills" class="hover:text-white transition">Skills</a>
-        <a href="#about" class="hover:text-white transition">About</a>
-        <a href="[link-to-resume.pdf]" target="_blank" class="px-3 py-1.5 rounded border border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/10 transition font-mono text-xs">
-          Resume.pdf
-        </a>
-      </nav>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">Your Name</a>
+    <nav aria-label="Primary">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">About</a>
+      <a class="resume" href="resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+
+    <!-- Hero -->
+    <div class="hero">
+      <h1>Your Name</h1>
+      <div class="dim" aria-hidden="true"><span>Engineer, B.S. 2026</span></div>
+      <p class="role">Mechanical &amp; Systems Engineer</p>
+      <p class="lead">I design, simulate, and build hardware-software systems. Replace this with one or two sentences on the problems you solve and the tools you use, such as CAD and FEA modeling paired with embedded C++ and test automation.</p>
+      <div class="links">
+        <a class="btn primary" href="#projects">See my projects</a>
+        <a class="btn" href="https://github.com/hpharryphan" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/your-linkedin/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="mailto:your.email@example.com">Email me</a>
+      </div>
     </div>
-  </header>
 
-  <main class="max-w-5xl mx-auto px-6">
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Selected projects</h2>
+      <p class="sub">Each sheet lists the problem, my role, the tools, and where to see the work.</p>
 
-    <!-- Hero Section -->
-    <section class="py-20 md:py-28 border-b border-slate-800/80">
-      <p class="font-mono text-emerald-400 text-sm mb-3">Hello, I'm</p>
-      <h1 class="text-4xl md:text-6xl font-bold text-white tracking-tight mb-4">
-        [Your Name]
-      </h1>
-      <h2 class="text-xl md:text-2xl text-slate-400 font-medium mb-6">
-        [Your Engineering Discipline, e.g., Mechanical & Systems Engineer]
-      </h2>
-      <p class="max-w-2xl text-slate-300 leading-relaxed mb-8">
-        [1–2 sentence value statement: e.g., I design, simulate, and build reliable hardware-software systems—bridging CAD/FEA modeling with embedded C++ and data-driven automation.]
-      </p>
-      <div class="flex flex-wrap gap-4 text-sm font-mono">
-        <a href="https://github.com[your-username]" target="_blank" class="px-5 py-2.5 rounded bg-emerald-500 text-slate-950 font-semibold hover:bg-emerald-400 transition">
-          GitHub ↗
-        </a>
-        <a href="https://linkedin.com[your-username]" target="_blank" class="px-5 py-2.5 rounded border border-slate-700 hover:border-slate-500 text-slate-200 transition">
-          LinkedIn ↗
-        </a>
-        <a href="mailto:[your.email@example.com]" class="px-5 py-2.5 rounded border border-slate-700 hover:border-slate-500 text-slate-200 transition">
-          Email Me
-        </a>
+      <div class="sheets">
+
+        <article class="sheet">
+          <div class="preview">
+            <!-- Replace with: <img src="assets/project1.jpg" alt="Describe the image"> -->
+            Drop a render, plot, or photo here
+          </div>
+          <div class="body">
+            <h3>Project 1 title</h3>
+            <p>State the problem or constraint, how you modeled or built the solution, and the measured result (for example, cut cycle time 32%).</p>
+          </div>
+          <div class="block">
+            <div><b>Year</b>2026</div>
+            <div><b>Role</b>Lead, 4-person team</div>
+            <div class="wide"><b>Tools</b>Python, C++, ROS 2</div>
+            <div class="wide out"><a href="https://github.com/hpharryphan/repo-1" target="_blank" rel="noopener">Source code</a><a href="#" target="_blank" rel="noopener">Technical report</a></div>
+          </div>
+        </article>
+
+        <article class="sheet">
+          <div class="preview">Drop a render, plot, or photo here</div>
+          <div class="body">
+            <h3>Project 2 title</h3>
+            <p>Describe the design tradeoff you worked through, such as weight versus stiffness, and what improved after your changes.</p>
+          </div>
+          <div class="block">
+            <div><b>Year</b>2025</div>
+            <div><b>Role</b>Design and analysis</div>
+            <div class="wide"><b>Tools</b>SolidWorks, ANSYS, MATLAB</div>
+            <div class="wide out"><a href="https://github.com/hpharryphan/repo-2" target="_blank" rel="noopener">Source code</a><a href="#" target="_blank" rel="noopener">Documentation</a></div>
+          </div>
+        </article>
+
+        <article class="sheet">
+          <div class="preview">Drop a render, plot, or photo here</div>
+          <div class="body">
+            <h3>Project 3 title</h3>
+            <p>Say what tool or pipeline you built, who uses it, and how much time, cost, or error it removed.</p>
+          </div>
+          <div class="block">
+            <div><b>Year</b>2025</div>
+            <div><b>Role</b>Solo developer</div>
+            <div class="wide"><b>Tools</b>TypeScript, Docker, PostgreSQL</div>
+            <div class="wide out"><a href="https://github.com/hpharryphan/repo-3" target="_blank" rel="noopener">Source code</a><a href="#" target="_blank" rel="noopener">Live demo</a></div>
+          </div>
+        </article>
+
+        <article class="sheet">
+          <div class="preview">Drop a render, plot, or photo here</div>
+          <div class="body">
+            <h3>Project 4 title</h3>
+            <p>Add a fourth project, or delete this sheet. Two to four strong projects read better than a long list.</p>
+          </div>
+          <div class="block">
+            <div><b>Year</b>2024</div>
+            <div><b>Role</b>Your role</div>
+            <div class="wide"><b>Tools</b>List the main tools</div>
+            <div class="wide out"><a href="https://github.com/hpharryphan/repo-4" target="_blank" rel="noopener">Source code</a></div>
+          </div>
+        </article>
+
+      </div>
+      <p class="more"><a href="https://github.com/hpharryphan?tab=repositories" target="_blank" rel="noopener">Browse all repositories on GitHub</a></p>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <p class="sub">Group these by how you use them. Remove anything you can't discuss in an interview.</p>
+      <div class="skills">
+        <div><h3>Design and analysis</h3><ul><li>SolidWorks, Fusion 360</li><li>ANSYS, finite element analysis</li><li>GD&amp;T, tolerance stack-ups</li></ul></div>
+        <div><h3>Software</h3><ul><li>Python, C++, MATLAB</li><li>Git, Linux, Docker</li><li>Data analysis and plotting</li></ul></div>
+        <div><h3>Hardware and test</h3><ul><li>Embedded systems (STM32, Arduino)</li><li>PCB design basics</li><li>Instrumentation and data acquisition</li></ul></div>
       </div>
     </section>
 
-    <!-- Featured Projects Section -->
-    <section id="projects" class="py-20 border-b border-slate-800/80">
-      <div class="flex items-baseline justify-between mb-10">
+    <!-- About -->
+    <section id="about">
+      <div class="about">
         <div>
-          <h3 class="text-2xl font-bold text-white">Featured Projects</h3>
-          <p class="text-sm text-slate-400 mt-1">Selected engineering builds, simulations, and software systems.</p>
+          <h2>About</h2>
+          <p>Write two short paragraphs in your own voice. First: what kind of engineering you do and what draws you to it. Second: what you're looking for next, such as an internship, a full-time role, or a research collaboration.</p>
+          <p>Prefer email for first contact: <a href="mailto:your.email@example.com">your.email@example.com</a>.</p>
         </div>
-        <a href="https://github.com[your-username]?tab=repositories" target="_blank" class="font-mono text-xs text-emerald-400 hover:underline">
-          View all repos →
-        </a>
+        <dl class="facts">
+          <div><dt>Education</dt><dd>B.S., Your Major</dd></div>
+          <div><dt>School</dt><dd>Your University</dd></div>
+          <div><dt>Location</dt><dd>Your City, State</dd></div>
+          <div><dt>Status</dt><dd>Open to opportunities</dd></div>
+        </dl>
       </div>
+    </section>
 
-      <div class="grid md:grid-cols-2 gap-6">
+  </div>
+</main>
 
-        <!-- Project Card 1 -->
-        <article class="group rounded-xl border border-slate-800 bg-slate-900/50 p-6 flex flex-col justify-between hover:border-slate-700 transition">
-          <div>
-            <!-- Optional Image/GIF Preview -->
-            <div class="aspect-video w-full rounded-lg bg-slate-800/70 border border-slate-800 mb-5 overflow-hidden flex items-center justify-center text-xs font-mono text-slate-500">
-              <!-- Replace div text with: <img src="assets/project1.gif" alt="Project 1 Demo" class="w-full h-full object-cover" /> -->
-              [Project 1 Diagram / Demo GIF]
-            </div>
-            <div class="flex items-center justify-between gap-2 mb-2">
-              <h4 class="text-lg font-semibold text-white group-hover:text-emerald-400 transition">
-                [Project 1 Title]
-              </h4>
-              <span class="font-mono text-xs text-slate-500">[Year]</span>
-            </div>
-            <p class="text-sm text-slate-300 leading-relaxed mb-4">
-              [2-sentence summary: State the engineering problem/constraint you solved, how you built or modeled it, and the concrete result or metric achieved.]
-            </p>
-          </div>
-          <div>
-            <div class="flex flex-wrap gap-2 mb-5 font-mono text-xs">
-              <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300">Python</span>
-              <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300">C++</span>
-              <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300">ROS2</span>
-            </div>
-            <div class="flex items-center gap-4 text-xs font-mono border-t border-slate-800 pt-4">
-              <a href="https://github.com[your-username]/[repo-1]" target="_blank" class="text-slate-300 hover:text-emerald-400 transition">
-                [Source Code ↗]
-              </a>
-              <a href="[live-demo-or-report-link]" target="_blank" class="text-slate-300 hover:text-emerald-400 transition">
-                [Live Demo / Technical Report ↗]
-              </a>
-            </div>
-          </div>
-        </article>
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Your Name</span>
+    <span><a href="https://github.com/hpharryphan" target="_blank" rel="noopener">GitHub</a> &nbsp; <a href="https://www.linkedin.com/in/your-linkedin/" target="_blank" rel="noopener">LinkedIn</a></span>
+  </div>
+</footer>
 
-        <!-- Project Card 2 -->
-        <article class="group rounded-xl border border-slate-800 bg-slate-900/50 p-6 flex flex-col justify-between hover:border-slate-700 transition">
-          <div>
-            <div class="aspect-video w-full rounded-lg bg-slate-800/70 border border-slate-800 mb-5 overflow-hidden flex items-center justify-center text-xs font-mono text-slate-500">
-              [Project 2 CAD Render / Plot]
-            </div>
-            <div class="flex items-center justify-between gap-2 mb-2">
-              <h4 class="text-lg font-semibold text-white group-hover:text-emerald-400 transition">
-                [Project 2 Title]
-              </h4>
-              <span class="font-mono text-xs text-slate-500">[Year]</span>
-            </div>
-            <p class="text-sm text-slate-300 leading-relaxed mb-4">
-              [2-sentence summary: Describe the system architecture, simulation setup, or design tradeoff you navigated and what improved as a result.]
-            </p>
-          </div>
-          <div>
-            <div class="flex flex-wrap gap-2 mb-5 font-mono text-xs">
-              <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300">MATLAB</span>
-              <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300">SolidWorks</span>
-              <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300">ANSYS</span>
-            </div>
-            <div class="flex items-center gap-4 text-xs font-mono border-t border-slate-800 pt-4">
-              <a href="https://github.com[your-username]/[repo-2]" target="_blank" class="text-slate-300 hover:text-emerald-400 transition">
-                [Source Code ↗]
-              </a>
-              <a href="[live-demo-or-report-link]" target="_blank" class="text-slate-300 hover:text-emerald-400 transition">
-                [Documentation ↗]
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project Card 3 -->
-        <article class="group rounded-xl border border-slate-800 bg-slate-900/50 p-6 flex flex-col justify-between hover:border-slate-700 transition">
-          <div>
-            <div class="aspect-video w-full rounded-lg bg-slate-800/70 border border-slate-800 mb-5 overflow-hidden flex items-center justify-center text-xs font-mono text-slate-500">
-              [Project 3 Screenshot / Schematic]
-            </div>
-            <div class="flex items-center justify-between gap-2 mb-2">
-              <h4 class="text-lg font-semibold text-white group-hover:text-emerald-400 transition">
-                [Project 3 Title]
-              </h4>
-              <span class="font-mono text-xs text-slate-500">[Year]</span>
-            </div>
-            <p class="text-sm text-slate-300 leading-relaxed mb-4">
-              [2-sentence summary: State what tool or pipeline you built, who/what it serves, and how much time, cost, or error it eliminated.]
-            </p>
-          </div>
-          <div>
-            <div class="flex flex-wrap gap-2 mb-5 font-mono text-xs">
-              <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300">TypeScript</span>
-              <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300">Docker</span>
-              <span class="px-2.5 py-1 rounded bg-slate-800 text-emerald-300">PostgreSQL</span>
-            </div>
-            <div class="flex items-center gap-4 text-xs font-mono border-t border-slate-800 pt-4">
-              <a href="https://github.com[your-username]/[repo-3]" target="_blank" class="text-slate-300 hover:text-emerald-400 transition">
-                [Source Code ↗]
-              </a>
-              <a href="[live-demo-link]" target="_blank" class="text-slate-300 hover:text-emerald-400 transition">
-                [Live App ↗]
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project Card 4 -->
-        <article class="group rounded-xl border border-slate-800 bg-slate-900/50 p-6 flex flex-col justify-between hover:border-slate-700 transition">
-          <div>
+</body>
+</html>
