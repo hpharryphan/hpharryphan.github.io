@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Harry Phan | Engineering Portfolio</title>
-<meta name="description" content="Engineering portfolio of Harry Phan: selected projects, skills, and contact information.">
+<title>Harry Phan | Mechanical Engineering Portfolio</title>
+<meta name="description" content="Portfolio of Harry Phan, Texas A&amp;M mechanical engineering student: robotics, CAD, FEA, and design for manufacturing.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -35,18 +35,11 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font: 400 1rem/1.65 var(--sans);
-  -webkit-font-smoothing: antialiased;
-}
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 1rem/1.65 var(--sans); -webkit-font-smoothing: antialiased; }
 a { color: var(--blue); text-underline-offset: 3px; }
 a:focus-visible { outline: 2px solid var(--flag); outline-offset: 3px; }
 .wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.5rem; }
 
-/* Header */
 header { border-bottom: 1px solid var(--line); background: var(--paper); position: sticky; top: 0; z-index: 10; }
 header .wrap { display: flex; align-items: center; justify-content: space-between; height: 3.5rem; }
 .brand { font: 700 1rem var(--head); color: var(--ink); text-decoration: none; }
@@ -56,31 +49,30 @@ nav a:hover { color: var(--ink); }
 nav .resume { color: var(--ink); border: 1px solid var(--ink); padding: .25rem .75rem; border-radius: 2px; }
 nav .resume:hover { background: var(--ink); color: var(--paper); }
 
-/* Hero */
 .hero { padding: 5rem 0 4rem; }
 .hero h1 { font: 800 clamp(2.75rem, 8vw, 5.5rem)/1 var(--head); letter-spacing: -.03em; margin: 0 0 1rem; }
-.dim { display: flex; align-items: center; gap: .5rem; max-width: 36rem; color: var(--muted); font: 400 .8rem var(--mono); margin-bottom: 1.25rem; }
-.dim::before, .dim::after { content: ""; flex: 1; border-top: 1px solid var(--muted); }
-.dim span { white-space: nowrap; }
+.dim { display: flex; align-items: center; gap: .5rem; max-width: 40rem; color: var(--muted); font: 400 .8rem var(--mono); margin-bottom: 1.25rem; }
+.dim::before, .dim::after { content: ""; flex: 1; border-top: 1px solid var(--muted); min-width: 1rem; }
+.dim span { text-align: center; }
 .hero .role { font: 500 1.35rem var(--head); color: var(--blue); margin: 0 0 1rem; }
-.hero p.lead { max-width: 38rem; color: var(--muted); font-size: 1.1rem; margin: 0 0 2rem; }
+.hero p.lead { max-width: 40rem; color: var(--muted); font-size: 1.1rem; margin: 0 0 2rem; }
 .links { display: flex; flex-wrap: wrap; gap: .75rem; }
 .btn { padding: .6rem 1.1rem; border: 1px solid var(--ink); border-radius: 2px; text-decoration: none; color: var(--ink); font-weight: 500; }
 .btn.primary { background: var(--ink); color: var(--paper); }
 .btn:hover { border-color: var(--flag); }
 
-/* Sections */
 section { padding: 4rem 0; border-top: 1px solid var(--line); }
 h2 { font: 800 1.9rem var(--head); letter-spacing: -.02em; margin: 0 0 .5rem; }
 .sub { color: var(--muted); margin: 0 0 2.5rem; max-width: 40rem; }
 
-/* Project sheets */
-.sheets { display: grid; gap: 1.75rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 28rem), 1fr)); }
+.sheets { align-items: start; display: grid; gap: 1.75rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 28rem), 1fr)); }
 .sheet { background: var(--sheet); border: 1.5px solid var(--ink); display: flex; flex-direction: column; }
-.preview { aspect-ratio: 16 / 9; border-bottom: 1.5px solid var(--ink); display: grid; place-items: center; color: var(--muted); font: 400 .8rem var(--mono); background:
+.preview { aspect-ratio: 16 / 9; border-bottom: 1.5px solid var(--ink); display: grid; place-items: center; background:
   linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 24px 24px,
   linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 24px 24px; }
 .preview img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.metric { text-align: center; font: 800 clamp(1.6rem, 4.5vw, 2.4rem)/1.1 var(--head); color: var(--blue); background: var(--sheet); padding: .7rem 1.1rem; border: 1px solid var(--line); }
+.metric small { display: block; font: 400 .75rem var(--mono); color: var(--muted); margin-top: .35rem; }
 .sheet .body { padding: 1.25rem 1.25rem 1rem; flex: 1; }
 .sheet h3 { font: 700 1.25rem var(--head); margin: 0 0 .5rem; }
 .sheet p { margin: 0; color: var(--muted); font-size: .95rem; }
@@ -90,21 +82,17 @@ h2 { font: 800 1.9rem var(--head); letter-spacing: -.02em; margin: 0 0 .5rem; }
 .block b { display: block; font: 400 .72rem var(--mono); color: var(--muted); margin-bottom: .1rem; }
 .block .wide { grid-column: 1 / -1; border-right: 0; }
 .block .wide:last-child { border-bottom: 0; }
-.block .out { display: flex; gap: 1.25rem; flex-wrap: wrap; }
-.more { margin-top: 2rem; }
 
-/* Skills */
-.skills { display: grid; gap: 0; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); border: 1.5px solid var(--ink); background: var(--sheet); }
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); border: 1.5px solid var(--ink); background: var(--sheet); }
 .skills div { padding: 1.25rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .skills h3 { font: 700 1rem var(--head); margin: 0 0 .5rem; }
 .skills ul { margin: 0; padding: 0; list-style: none; color: var(--muted); font-size: .92rem; }
 .skills li + li { margin-top: .2rem; }
 
-/* About + contact */
 .about { display: grid; gap: 2.5rem; grid-template-columns: 1fr; }
 @media (min-width: 52rem) { .about { grid-template-columns: 1.6fr 1fr; } }
 .about p { margin: 0 0 1rem; max-width: 38rem; }
-.facts { margin: 0; font-size: .92rem; border: 1.5px solid var(--ink); background: var(--sheet); }
+.facts { margin: 0; font-size: .92rem; border: 1.5px solid var(--ink); background: var(--sheet); align-self: start; }
 .facts div { display: flex; justify-content: space-between; gap: 1rem; padding: .7rem 1rem; border-bottom: 1px solid var(--line); }
 .facts div:last-child { border-bottom: 0; }
 .facts dt { color: var(--muted); }
@@ -116,6 +104,22 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   nav { gap: .9rem; font-size: .82rem; }
   .hero { padding: 3rem 0; }
 }
+
+details { border-top: 1.5px solid var(--ink); }
+summary { cursor: pointer; list-style: none; padding: .85rem 1.25rem; font: 500 .85rem var(--mono); display: flex; justify-content: space-between; align-items: center; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font-size: 1.3rem; color: var(--flag); }
+details[open] summary::after { content: "\2212"; }
+summary:hover { background: var(--paper); }
+summary:focus-visible { outline: 2px solid var(--flag); outline-offset: -2px; }
+.detail { padding: .25rem 1.25rem 1.5rem; }
+.detail h4 { font: 400 .72rem var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin: 1.25rem 0 .4rem; }
+.detail ul { margin: 0; padding-left: 1.1rem; font-size: .92rem; }
+.detail li + li { margin-top: .35rem; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: .75rem; margin-top: .5rem; }
+.gallery figure { position: relative; margin: 0; aspect-ratio: 4 / 3; border: 1px dashed var(--muted); display: grid; place-items: center; padding: .5rem; text-align: center; font: 400 .72rem var(--mono); color: var(--muted); background: var(--paper); overflow: hidden; }
+.gallery figure::before { content: "Add " attr(data-file); }
+.gallery img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 </style>
 </head>
 <body>
@@ -135,114 +139,155 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <main id="top">
   <div class="wrap">
 
-    <!-- Hero -->
     <div class="hero">
       <h1>Harry Phan</h1>
-      <div class="dim" aria-hidden="true"><span>Mechanical Engineering, B.S. 2029</span></div>
-      <p class="role">Mechanical &amp; Design Engineer</p>
-      <p class="lead">I design, simulate, and build hardware-software systems. Replace this with one or two sentences on the problems you solve and the tools you use, such as CAD and FEA modeling paired with embedded C++ and test automation.</p>
+      <div class="dim" aria-hidden="true"><span>B.S. Mechanical Engineering, Texas A&amp;M, May 2029</span></div>
+      <p class="role">Mechanical Engineering Student</p>
+      <p class="lead">I design rover arms, suspension, and combat robots, with a focus on CAD, FEA, design for manufacturing, and GD&amp;T. Seeking a Summer 2027 engineering internship.</p>
       <div class="links">
         <a class="btn primary" href="#projects">See my projects</a>
         <a class="btn" href="https://github.com/hpharryphan" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/vominhhieuphan/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://www.linkedin.com/in/vominhhieuphan" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn" href="mailto:hp.harryphan@gmail.com">Email me</a>
       </div>
     </div>
 
-    <!-- Projects -->
     <section id="projects">
       <h2>Selected projects</h2>
-      <p class="sub">Each sheet lists the problem, my role, the tools, and where to see the work.</p>
+      <p class="sub">Each sheet lists the work, my role, the team, and the tools.</p>
 
       <div class="sheets">
 
         <article class="sheet">
-          <div class="preview">
-            <!-- Replace with: <img src="assets/project1.jpg" alt="Describe the image"> -->
-            Drop a render, plot, or photo here
-          </div>
+          <!-- To use a photo or render instead: replace the metric div with <img src="assets/arm.jpg" alt="Describe the image"> -->
+          <div class="preview"><div class="metric">5 kg payload<small>6-DOF arm, ~1.17 m link span</small></div></div>
           <div class="body">
-            <h3>Project 1 title</h3>
-            <p>State the problem or constraint, how you modeled or built the solution, and the measured result (for example, cut cycle time 32%).</p>
+            <h3>6-DOF Rover Manipulator Arm</h3>
+            <p>Arm for URC 2027, built by a joint US-Japan team around swappable joint modules that can be serviced in the field.</p>
           </div>
           <div class="block">
-            <div><b>Year</b>2026</div>
-            <div><b>Role</b>Lead, 4-person team</div>
-            <div class="wide"><b>Tools</b>Python, C++, ROS 2</div>
-            <div class="wide out"><a href="https://github.com/hpharryphan/repo-1" target="_blank" rel="noopener">Source code</a><a href="#" target="_blank" rel="noopener">Technical report</a></div>
+            <div><b>Period</b>Sep 2026 – Present</div>
+            <div><b>Role</b>Mechanical Design Engineer</div>
+            <div class="wide"><b>Team</b>KARURA URC Team</div>
+            <div class="wide"><b>Tools</b>Fusion 360, DFM/DFA, GD&amp;T drawings</div>
           </div>
+          <details>
+            <summary>Objectives, details &amp; gallery</summary>
+            <div class="detail">
+              <h4>Objectives</h4><ul><li>Carry a 5 kg payload (8 kg stretch limit)</li><li>Reach with a link span of about 1.17 m</li><li>Move joints at 45°/s</li><li>Make faults quick to isolate and fix in the field</li></ul>
+              <h4>Design details</h4><ul><li>Six degrees of freedom with fully swappable joint modules</li><li>Cycloidal reducers and timing belts, up to 420:1 reduction</li><li>Independently actuated wrist joints for rapid fault isolation</li><li>DFM and DFA applied for CNC, waterjet, and SLS/FDM 3D-printed parts</li><li>2D drawings with GD&amp;T on mounting interfaces and bearing bores</li></ul>
+              <h4>Status</h4><ul><li>Ongoing: designed for URC 2027 with the KARURA URC Team.</li></ul>
+              <h4>Gallery</h4>
+              <div class="gallery"><figure data-file="assets/arm-1.jpg"><img src="assets/arm-1.jpg" alt="Rover manipulator arm CAD overview" loading="lazy" onerror="this.remove()"></figure><figure data-file="assets/arm-2.jpg"><img src="assets/arm-2.jpg" alt="Swappable joint module" loading="lazy" onerror="this.remove()"></figure><figure data-file="assets/arm-3.jpg"><img src="assets/arm-3.jpg" alt="Wrist joint detail" loading="lazy" onerror="this.remove()"></figure></div>
+              <!-- To add an image: upload it to the assets folder with the exact file name shown in the dashed box. Delete any figure you don't need. -->
+            </div>
+          </details>
         </article>
 
         <article class="sheet">
-          <div class="preview">Drop a render, plot, or photo here</div>
+          <div class="preview"><div class="metric">4.42 → 3.25 kg<small>mass per corner, about 26% lighter</small></div></div>
           <div class="body">
-            <h3>Project 2 title</h3>
-            <p>Describe the design tradeoff you worked through, such as weight versus stiffness, and what improved after your changes.</p>
+            <h3>Lightweight Suspension Assembly</h3>
+            <p>Redesigned the lower control arm and wheel assembly to cut mass per corner by about 26%.</p>
           </div>
           <div class="block">
-            <div><b>Year</b>2025</div>
-            <div><b>Role</b>Design and analysis</div>
-            <div class="wide"><b>Tools</b>SolidWorks, ANSYS, MATLAB</div>
-            <div class="wide out"><a href="https://github.com/hpharryphan/repo-2" target="_blank" rel="noopener">Source code</a><a href="#" target="_blank" rel="noopener">Documentation</a></div>
+            <div><b>Period</b>Sep 2026 – Present</div>
+            <div><b>Role</b>Mechanical Design Engineer</div>
+            <div class="wide"><b>Team</b>KARURA URC Team</div>
+            <div class="wide"><b>Tools</b>Fusion 360</div>
           </div>
+          <details>
+            <summary>Objectives, details &amp; gallery</summary>
+            <div class="detail">
+              <h4>Objectives</h4><ul><li>Reduce mass per corner of the lower control arm and wheel assembly</li><li>Carry the savings across the full four-wheel suspension</li></ul>
+              <h4>Design details</h4><ul><li>Redesign modeled in Fusion 360</li><li>Mass per corner: 4.42 kg down to 3.25 kg</li></ul>
+              <h4>Outcome</h4><ul><li>1.17 kg saved per corner, a projected 4.7 kg reduction across the four-wheel suspension.</li></ul>
+              <h4>Gallery</h4>
+              <div class="gallery"><figure data-file="assets/suspension-1.jpg"><img src="assets/suspension-1.jpg" alt="Redesigned lower control arm" loading="lazy" onerror="this.remove()"></figure><figure data-file="assets/suspension-2.jpg"><img src="assets/suspension-2.jpg" alt="Wheel assembly" loading="lazy" onerror="this.remove()"></figure><figure data-file="assets/suspension-3.jpg"><img src="assets/suspension-3.jpg" alt="Before and after comparison" loading="lazy" onerror="this.remove()"></figure></div>
+              <!-- To add an image: upload it to the assets folder with the exact file name shown in the dashed box. Delete any figure you don't need. -->
+            </div>
+          </details>
         </article>
 
         <article class="sheet">
-          <div class="preview">Drop a render, plot, or photo here</div>
+          <div class="preview"><div class="metric">1 lb<small>antweight combat robot</small></div></div>
           <div class="body">
-            <h3>Project 3 title</h3>
-            <p>Say what tool or pipeline you built, who uses it, and how much time, cost, or error it removed.</p>
+            <h3>Antweight Combat Robot</h3>
+            <p>A 1 lb combat robot designed, built, and FEA-validated from the ground up.</p>
           </div>
           <div class="block">
-            <div><b>Year</b>2025</div>
-            <div><b>Role</b>Solo developer</div>
-            <div class="wide"><b>Tools</b>TypeScript, Docker, PostgreSQL</div>
-            <div class="wide out"><a href="https://github.com/hpharryphan/repo-3" target="_blank" rel="noopener">Source code</a><a href="#" target="_blank" rel="noopener">Live demo</a></div>
+            <div><b>Period</b>Sep 2026 – Present</div>
+            <div><b>Role</b>Mechanical Engineer</div>
+            <div class="wide"><b>Team</b>TURTLE Robotics</div>
+            <div class="wide"><b>Tools</b>SolidWorks, ANSYS, LiPo, brushed ESCs</div>
           </div>
+          <details>
+            <summary>Objectives, details &amp; gallery</summary>
+            <div class="detail">
+              <h4>Objectives</h4><ul><li>Build a 1 lb antweight combat robot from scratch</li><li>Stay within strict combat weight limits</li><li>Survive dynamic impacts</li></ul>
+              <h4>Design details</h4><ul><li>Spatial layout and component integration in SolidWorks</li><li>Drivetrain, motors, bearings, and fasteners chosen from torque, speed, and weight calculations</li><li>2S LiPo power, dual brushed ESCs, and a servo-driven weapon over a 2.4 GHz FlySky radio link</li><li>Static structural FEA and vibration analysis in ANSYS</li></ul>
+              <h4>Outcome</h4><ul><li>Chassis durability validated against dynamic impact stresses and deformation.</li></ul>
+              <h4>Gallery</h4>
+              <div class="gallery"><figure data-file="assets/robot-1.jpg"><img src="assets/robot-1.jpg" alt="Combat robot CAD model" loading="lazy" onerror="this.remove()"></figure><figure data-file="assets/robot-2.jpg"><img src="assets/robot-2.jpg" alt="ANSYS stress results" loading="lazy" onerror="this.remove()"></figure><figure data-file="assets/robot-3.jpg"><img src="assets/robot-3.jpg" alt="Finished robot" loading="lazy" onerror="this.remove()"></figure></div>
+              <!-- To add an image: upload it to the assets folder with the exact file name shown in the dashed box. Delete any figure you don't need. -->
+            </div>
+          </details>
         </article>
 
         <article class="sheet">
-          <div class="preview">Drop a render, plot, or photo here</div>
+          <div class="preview"><div class="metric">16:1<small>multi-stage planetary reduction</small></div></div>
           <div class="body">
-            <h3>Project 4 title</h3>
-            <p>Add a fourth project, or delete this sheet. Two to four strong projects read better than a long list.</p>
+            <h3>Multi-Stage Planetary Gearbox</h3>
+            <p>A 16:1 planetary gearbox, from Python gear calculations through CAD to a printed and assembled prototype.</p>
           </div>
           <div class="block">
-            <div><b>Year</b>2024</div>
-            <div><b>Role</b>Your role</div>
-            <div class="wide"><b>Tools</b>List the main tools</div>
-            <div class="wide out"><a href="https://github.com/hpharryphan/repo-4" target="_blank" rel="noopener">Source code</a></div>
+            <div><b>Period</b>Jun – Jul 2026</div>
+            <div><b>Role</b>Designer and builder</div>
+            <div class="wide"><b>Team</b>Independent project</div>
+            <div class="wide"><b>Tools</b>Python, SolidWorks, 3D printing</div>
           </div>
+          <details>
+            <summary>Objectives, details &amp; gallery</summary>
+            <div class="detail">
+              <h4>Objectives</h4><ul><li>Achieve a 16:1 reduction with multiple planetary stages</li><li>Rotate smoothly with low backlash</li></ul>
+              <h4>Design details</h4><ul><li>Python scripts for gear tooth counts, ratios, and torque trade-offs</li><li>Multi-body SolidWorks assembly with defined clearances, mate constraints, and backlash tolerances</li><li>Printed carriers and housings with COTS ball bearings, ground steel dowel pins, and M3 brass heat-set inserts</li><li>Every part tracked in a bill of materials</li></ul>
+              <h4>Outcome</h4><ul><li>Smooth rotation and low backlash on the assembled prototype.</li></ul>
+              <h4>Gallery</h4>
+              <div class="gallery"><figure data-file="assets/gearbox-1.jpg"><img src="assets/gearbox-1.jpg" alt="Gearbox CAD assembly" loading="lazy" onerror="this.remove()"></figure><figure data-file="assets/gearbox-2.jpg"><img src="assets/gearbox-2.jpg" alt="Printed carriers and housing" loading="lazy" onerror="this.remove()"></figure><figure data-file="assets/gearbox-3.jpg"><img src="assets/gearbox-3.jpg" alt="Assembled gearbox" loading="lazy" onerror="this.remove()"></figure></div>
+              <!-- To add an image: upload it to the assets folder with the exact file name shown in the dashed box. Delete any figure you don't need. -->
+            </div>
+          </details>
         </article>
 
       </div>
-      <p class="more"><a href="https://github.com/hpharryphan?tab=repositories" target="_blank" rel="noopener">Browse all repositories on GitHub</a></p>
+      <p style="margin-top:2rem"><a href="https://github.com/hpharryphan?tab=repositories" target="_blank" rel="noopener">Browse repositories on GitHub</a></p>
     </section>
 
-    <!-- Skills -->
     <section id="skills">
       <h2>Skills</h2>
-      <p class="sub">Group these by how you use them. Remove anything you can't discuss in an interview.</p>
+      <p class="sub">The tools and methods I use for design, analysis, and building.</p>
       <div class="skills">
-        <div><h3>Design and analysis</h3><ul><li>SolidWorks, Fusion 360</li><li>ANSYS, finite element analysis</li><li>GD&amp;T, tolerance stack-ups</li></ul></div>
-        <div><h3>Software</h3><ul><li>Python, C++, MATLAB</li><li>Git, Linux, Docker</li><li>Data analysis and plotting</li></ul></div>
-        <div><h3>Hardware and test</h3><ul><li>Embedded systems (STM32, Arduino)</li><li>PCB design basics</li><li>Instrumentation and data acquisition</li></ul></div>
+        <div><h3>CAD and simulation</h3><ul><li>SolidWorks, Fusion 360, Onshape</li><li>ANSYS: static structural, dynamic, vibration</li><li>FEA</li></ul></div>
+        <div><h3>Design and manufacturing</h3><ul><li>DFM, DFA, GD&amp;T</li><li>Engineering drawings</li><li>3D printing (SLS/FDM), rapid prototyping</li></ul></div>
+        <div><h3>Mechanical systems</h3><ul><li>Cycloidal reducers, planetary gears</li><li>Timing belts</li><li>Bearing and fastener selection</li></ul></div>
+        <div><h3>Software and analysis</h3><ul><li>Python, Microsoft Excel</li><li>Torque and speed calculations</li><li>Electromechanical integration (LiPo, ESC, servos)</li></ul></div>
       </div>
     </section>
 
-    <!-- About -->
     <section id="about">
       <div class="about">
         <div>
           <h2>About</h2>
-          <p>Write two short paragraphs in your own voice. First: what kind of engineering you do and what draws you to it. Second: what you're looking for next, such as an internship, a full-time role, or a research collaboration.</p>
-          <p>Prefer email for first contact: <a href="mailto:hp.harryphan@gmail.com">hp.harryphan@gmail.com</a>.</p>
+          <p>I’m a mechanical engineering student at Texas A&amp;M University with a minor in Engineering Project Management. I work on student robotics teams, where I take parts from calculations and CAD through manufacturing and testing.</p>
+          <p>Outside of design teams, I’m a member of ASME and have tutored 10+ students in Calculus II, Newtonian Mechanics, and Engineering Computation. I’m looking for a Summer 2027 engineering internship. The best way to reach me is <a href="mailto:hp.harryphan@gmail.com">hp.harryphan@gmail.com</a>.</p>
         </div>
         <dl class="facts">
-          <div><dt>Education</dt><dd>B.S., Mechanical Engineering</dd></div>
-          <div><dt>School</dt><dd>Texas A&M University</dd></div>
+          <div><dt>Degree</dt><dd>B.S. Mechanical Engineering</dd></div>
+          <div><dt>School</dt><dd>Texas A&amp;M University</dd></div>
+          <div><dt>Expected</dt><dd>May 2029</dd></div>
+          <div><dt>GPA</dt><dd>3.89 / 4.00</dd></div>
+          <div><dt>Honors</dt><dd>Dean’s Honor Roll, Regents’ Scholarship</dd></div>
           <div><dt>Location</dt><dd>Houston, TX</dd></div>
-          <div><dt>Status</dt><dd>Open to opportunities</dd></div>
         </dl>
       </div>
     </section>
@@ -253,7 +298,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 <footer>
   <div class="wrap">
     <span>&copy; 2026 Harry Phan</span>
-    <span><a href="https://github.com/hpharryphan" target="_blank" rel="noopener">GitHub</a> &nbsp; <a href="https://www.linkedin.com/in/vominhhieuphan/" target="_blank" rel="noopener">LinkedIn</a></span>
+    <span><a href="https://github.com/hpharryphan" target="_blank" rel="noopener">GitHub</a> &nbsp; <a href="https://www.linkedin.com/in/vominhhieuphan" target="_blank" rel="noopener">LinkedIn</a></span>
   </div>
 </footer>
 
